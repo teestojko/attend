@@ -15,14 +15,14 @@
   <header class="header">
     <div class="header__inner">
       <div class="header-utilities">
-        <a class="header__logo" href="/">
-          Atte
-        </a>
+        <p class="header__logo">Atte</p>
+
         <nav>
           <ul class="header-nav">
             @if (Auth::check())
             <li class="header-nav__item">
-              <a class="header-nav__link" href="/mypage">マイページ</a>
+              <a class="header-nav__link" href="/">ホーム</a>
+              <a class="header-nav__link2" href="/attendance">日付一覧</a>
             </li>
             <li class="header-nav__item">
                 <form class="form" action="/logout" method="post">
