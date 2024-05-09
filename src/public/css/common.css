@@ -1,5 +1,5 @@
 .header {
-    background: #000;
+    background: #ffffff;
 }
 
 .header__inner {
@@ -15,7 +15,7 @@
 }
 
 .header__logo {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
     font-size: 24px;
