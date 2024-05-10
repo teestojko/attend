@@ -33,6 +33,7 @@
 @endif
 
 {{ $users->links() }}
+
 <div class="attendance__content">
   <div class="attendance__panel">
     <form class="attendance__button">
