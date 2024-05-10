@@ -24,9 +24,14 @@
 @endsection
 
 @section('content')
-<div class="attendance__alert">
+{{-- <div class="attendance__alert">
   // メッセージ機能
-</div>
+</div> --}}
+
+@if (!is_null($username))
+    <p>{{ $username }}さん、お疲れ様です！</p>
+@endif
+
 {{ $users->links() }}
 <div class="attendance__content">
   <div class="attendance__panel">

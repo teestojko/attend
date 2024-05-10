@@ -29,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 5%;
 }
 
 .header-nav__link {
