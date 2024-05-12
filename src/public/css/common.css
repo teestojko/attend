@@ -1,11 +1,11 @@
 .header {
     background: #ffffff;
+    height: 10vh;
 }
 
 .header__inner {
     margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
+    width: 95%;
 }
 
 .header-utilities {
@@ -34,6 +34,7 @@
 
 .header-nav__item{
     font-size: large;
+    margin-left: -22%;
 }
 
 .header-nav__link {

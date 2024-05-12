@@ -17,11 +17,13 @@
       <div class="header-utilities">
         <p class="header__logo">Atte</p>
 
-        <nav>
+        <nav class="nav">
           <ul class="header-nav">
             @if (Auth::check())
             <li class="header-nav__item">
               <a class="header-nav__link" href="/">ホーム</a>
+            </li>
+            <li class="header-nav__item">
               <a class="header-nav__link2" href="/attendance">日付一覧</a>
             </li>
             <li class="header-nav__item">
@@ -40,6 +42,9 @@
   <main>
     @yield('content')
   </main>
+  <footer class=footer>
+    <small class=footer_item>Atte,inc.</small>
+  </footer>
 </body>
 
 </html>
