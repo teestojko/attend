@@ -30,13 +30,23 @@ css 3
 
 # 環境構築
 git clone git@github.com:coachtech-material/laravel-docker-template.git
+
 mv laravel-docker-template Atte
+
 git remote set-url origin https://github.com/teestojko/attend.git
+
 composer require laravel/fortify
+
 php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
+
 php artisan migrate
+
 docker-compose up -d --build
+
 composer install
+
 touch .drawdio
+
 php artisan vendor:publish → laravel paginationを選択
+
 composer.jsonの記述に"nesbot/carbon": "^2.31"を追加
