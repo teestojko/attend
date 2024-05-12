@@ -29,7 +29,7 @@
 </div> --}}
 
 @if (!is_null($username))
-    <p>{{ $username }}さん、お疲れ様です！</p>
+    <p class='message'>{{ $username }}さん、お疲れ様です！</p>
 @endif
 
 {{ $users->links() }}
