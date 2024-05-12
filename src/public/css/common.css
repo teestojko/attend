@@ -1,11 +1,12 @@
 .header {
     background: #ffffff;
-    height: 10vh;
+    height: 11vh;
+
 }
 
 .header__inner {
     margin: 0 auto;
-    width: 95%;
+    width: 92%;
 }
 
 .header-utilities {
@@ -18,7 +19,7 @@
     color: #000000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 26px;
 }
 
 .header-utilities nav {
@@ -34,7 +35,7 @@
 
 .header-nav__item{
     font-size: large;
-    margin-left: -22%;
+    margin-left: -15%;
 }
 
 .header-nav__link {
@@ -57,5 +58,14 @@
 }
 
 .message{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     text-align: center;
 }
