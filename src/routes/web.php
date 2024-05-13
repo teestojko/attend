@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+
+// use App\Http\Controllers\TimeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +16,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/', [AuthController::class, 'index']);
 Route::middleware('auth')->group(function () {
         Route::get('/', [AuthController::class, 'index']);
+
+        // Route::post('/attendance', [TimeController::class,'attendance']);
 });
