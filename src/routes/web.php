@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TimeController;
 
 // use App\Http\Controllers\TimeController;
 
@@ -18,6 +19,7 @@ use App\Http\Controllers\AuthController;
 
 Route::middleware('auth')->group(function () {
         Route::get('/', [AuthController::class, 'index']);
+        Route::post('/save', [TimeController::class, 'store']);
 
         // Route::post('/attendance', [TimeController::class,'attendance']);
 });
