@@ -36,6 +36,7 @@ class TimeController extends Controller
                     'date' => Carbon::now()->toDateString(),
                     'clock_in' => Carbon::now()->format('H:i'),
                 ]);
+                return back()->with('clock_in_first_message', 'おはようございます！');
             }
             break;
 
@@ -50,7 +51,7 @@ class TimeController extends Controller
             $existingAttendance->update([
                 'clock_out' => Carbon::now()->format('H:i'),
             ]);
-            return back()->with('clock_out_message_success', '退勤が正常に記録されました');
+            return back()->with('clock_out_message_success', 'お疲れ様でした！');
         } else {
             // 既に退勤時間が記録されている場合、メッセージを返す
             return back()->with('clock_out_end_message', '既に退勤されています');

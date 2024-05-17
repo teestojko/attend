@@ -59,34 +59,42 @@
             </div>
         </div>
         <div class="attendance__alert">
+        @if (session('clock_in_first_message'))
+            <span class="attendance__alert--success">
+                {{ session('clock_in_first_message')}}
+            </span>
+        @endif
+        </div>
+
+        <div class="attendance__alert">
         @if (session('clock_in_message'))
-            <div class="attendance__alert--success">
+            <span class="attendance__alert--success">
                 {{ session('clock_in_message')}}
-            </div>
+            </span>
         @endif
         </div>
 
         <div class="attendance__alert">
         @if (session('clock_out_end_message'))
-            <div class="attendance__alert--success">
+            <span class="attendance__alert--success">
                 {{ session('clock_out_end_message')}}
-            </div>
+            </span>
         @endif
         </div>
 
         <div class="attendance__alert">
         @if (session('clock_out_message'))
-            <div class="attendance__alert--success">
+            <span class="attendance__alert--success">
                 {{ session('clock_out_message')}}
-            </div>
+            </span>
         @endif
         </div>
 
         <div class="attendance__alert">
         @if (session('clock_out_message_success'))
-            <div class="attendance__alert--success">
+            <span class="attendance__alert--success">
                 {{ session('clock_out_message_success')}}
-            </div>
+            </span>
         @endif
         </div>
 
