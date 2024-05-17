@@ -26,9 +26,6 @@
 @endsection
 
 @section('content')
-{{-- <div class="attendance__alert">
-  // メッセージ機能
-</div> --}}
     <div class="attendance">
         @if (!is_null($username))
             <p class='message'>{{ $username }}さん、お疲れ様です！</p>
@@ -61,20 +58,36 @@
                 </form>
             </div>
         </div>
+        <div class="attendance__alert">
+        @if (session('clock_in_message'))
+            <div class="attendance__alert--success">
+                {{ session('clock_in_message')}}
+            </div>
+        @endif
+        </div>
 
-            {{-- <div class="attendance-table">
-                <table class="attendance-table__inner">
-                <tr class="attendance-table__row">
-                    <th class="attendance-table__header">名前</th>
-                    <th class="attendance-table__header">開始時間</th>
-                    <th class="attendance-table__header">終了時間</th>
-                </tr>
-                <tr class="attendance-table__row">
-                    <td class="attendance-table__item">サンプル太郎</td>
-                    <td class="attendance-table__item">サンプル</td>
-                    <td class="attendance-table__item">サンプル</td>
-                </tr>
-                </table>
-            </div> --}}
-    </div>
+        <div class="attendance__alert">
+        @if (session('clock_out_end_message'))
+            <div class="attendance__alert--success">
+                {{ session('clock_out_end_message')}}
+            </div>
+        @endif
+        </div>
+
+        <div class="attendance__alert">
+        @if (session('clock_out_message'))
+            <div class="attendance__alert--success">
+                {{ session('clock_out_message')}}
+            </div>
+        @endif
+        </div>
+
+        <div class="attendance__alert">
+        @if (session('clock_out_message_success'))
+            <div class="attendance__alert--success">
+                {{ session('clock_out_message_success')}}
+            </div>
+        @endif
+        </div>
+
 @endsection
