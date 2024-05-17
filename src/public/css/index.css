@@ -1,7 +1,6 @@
 .attendance{
     background-color: #eeeeee;
-    min-height: 70%;
-    padding: 7%
+    height: 80%;
 }
 
 .attendance__alert--success {
@@ -47,8 +46,8 @@
 }
 
 .attendance__content {
-    margin: 0 auto;
-    max-width: 1230px;
+    display: flex;
+    flex-wrap: wrap;
     background-color: #eeeeee;
 }
 
