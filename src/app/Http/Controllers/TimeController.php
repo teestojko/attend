@@ -65,7 +65,8 @@ class TimeController extends Controller
 
         if ($attendance) {
             $latestRest = $attendance->rests()->latest()->first();
-            if ($latestRest && $latestRest->break_out) {
+
+            if (!$latestRest || ($latestRest && $latestRest->break_out)) {
                 $attendance->rests()->create([
                     'break_in' => Carbon::now()->format('H:i'),
                 ]);
@@ -79,24 +80,31 @@ class TimeController extends Controller
         break;
 
         case 'break_out':
-            $attendance = Auth::user()->attendances()->where('date', Carbon::today())->first();
-        if ($attendance) {
-            if (is_null($attendance->break_out)) {
-                $attendance->rests()->create([
-                    'break_out' => Carbon::now()->format('H:i'),
-                ]);
-                return back()->with('error', 'お疲れ様でした！');
-            } else {
-                return back()->with('error', '既に退勤されています');
-            }
-            } else {
-                return back()->with('error', 'まだ出勤されていません');
-            }
-                break;
+        $user = Auth::user();
+        $attendance = $user->attendances()->where('date', Carbon::today())->first();
 
-        default:
-            // その他の処理
-            break;
+        if ($attendance) {
+            // clock_in が not null であり、かつ clock_out が null であることを確認
+            if ($attendance->clock_in && is_null($attendance->clock_out)) {
+                // 最新の休憩レコードを取得
+                $latestRest = $attendance->rests()->latest()->first();
+
+                // 最新の休憩レコードが存在し、かつ break_in が設定されている場合のみ break_out を許可
+                if ($latestRest && $latestRest->break_in && is_null($latestRest->break_out)) {
+                    $latestRest->update([
+                        'break_out' => Carbon::now()->format('H:i'),
+                    ]);
+                    return back()->with('message', '無理せず頑張りましょう！');
+                } else {
+                    return back()->with('error', 'もう休憩終わってますよ！！');
+                }
+            } else {
+                return back()->with('error', '既に退勤が押されています');
+            }
+        } else {
+            return back()->with('error', 'まだ出勤が押されていません');
+        }
+        break;
     }
 
     return back();
