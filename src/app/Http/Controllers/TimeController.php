@@ -30,13 +30,13 @@ class TimeController extends Controller
             $existingClockIn = $user->attendances()->where('date', Carbon::today())->whereNotNull('clock_in')->exists();
 
             if ($existingClockIn) {
-                return back()->with('clock_in_message', '既に出勤されています');
+                return back()->with('error', '既に出勤されています');
             } else {
                 $user->attendances()->create([
                     'date' => Carbon::now()->toDateString(),
                     'clock_in' => Carbon::now()->format('H:i'),
                 ]);
-                return back()->with('clock_in_first_message', 'おはようございます！');
+                return back()->with('error', 'おはようございます！');
             }
             break;
 
@@ -50,44 +50,33 @@ class TimeController extends Controller
                 $existingAttendance->update([
                     'clock_out' => Carbon::now()->format('H:i'),
                 ]);
-                return back()->with('clock_out_message_success', 'お疲れ様でした！');
+                return back()->with('error', 'お疲れ様でした！');
             } else {
-                return back()->with('clock_out_end_message', '既に退勤されています');
+                return back()->with('error', '既に退勤されています');
             }
         } else {
-            return back()->with('clock_out_message', 'まだ出勤されていません');
+            return back()->with('error', 'まだ出勤されていません');
         }
                 break;
 
         case 'break_in':
-    $user = Auth::user();
-    $attendance = $user->attendances()->where('date', Carbon::today())->first();
+        $user = Auth::user();
+        $attendance = $user->attendances()->where('date', Carbon::today())->first();
 
-    if ($attendance) {
-        $latestRest = $attendance->rests()->latest()->first();
-        if ($latestRest && $latestRest->break_out) {
-            $attendance->rests()->create([
-                'break_in' => Carbon::now()->format('H:i'),
-            ]);
+        if ($attendance) {
+            $latestRest = $attendance->rests()->latest()->first();
+            if ($latestRest && $latestRest->break_out) {
+                $attendance->rests()->create([
+                    'break_in' => Carbon::now()->format('H:i'),
+                ]);
+
+            } else {
+                return back()->with('error', '最新の休憩が終了していないか、休憩が開始されていません');
+            }
         } else {
-            return back()->with('error', '最新の休憩が終了していないか、休憩が開始されていません');
+            return back()->with('error', 'まだ出勤していません');
         }
-    } else {
-        return back()->with('error', 'まだ出勤していません');
-    }
-    break;
-
-        // case 'break_in':
-        //     $attendance = Auth::user()->attendances()->where('date', Carbon::today())->first();
-        // if ($attendance) {
-        //     $attendance->rests()->create([
-        //         'break_in' => Carbon::now()->format('H:i'),
-        //     ]);
-        // } else {
-        //         return back()->with('error', 'まだ出勤していません');
-        // }
-        //     break;
-
+        break;
 
         case 'break_out':
             $attendance = Auth::user()->attendances()->where('date', Carbon::today())->first();
@@ -96,12 +85,12 @@ class TimeController extends Controller
                 $attendance->rests()->create([
                     'break_out' => Carbon::now()->format('H:i'),
                 ]);
-                return back()->with('clock_out_message_success', 'お疲れ様でした！');
+                return back()->with('error', 'お疲れ様でした！');
             } else {
-                return back()->with('clock_out_end_message', '既に退勤されています');
+                return back()->with('error', '既に退勤されています');
             }
             } else {
-            return back()->with('clock_out_message', 'まだ出勤されていません');
+                return back()->with('error', 'まだ出勤されていません');
             }
                 break;
 
@@ -110,8 +99,6 @@ class TimeController extends Controller
             break;
     }
 
-    // 必要に応じてリダイレクトなどの処理を追加
     return back();
-    // ->with('message', '送信されました');
     }
 }

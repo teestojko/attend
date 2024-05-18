@@ -56,45 +56,6 @@
                 </form>
             </div>
         </div>
-        <div class="attendance__alert">
-        @if (session('clock_in_first_message'))
-            <span class="attendance__alert--success">
-                {{ session('clock_in_first_message')}}
-            </span>
-        @endif
-        </div>
-
-        <div class="attendance__alert">
-        @if (session('clock_in_message'))
-            <span class="attendance__alert--success">
-                {{ session('clock_in_message')}}
-            </span>
-        @endif
-        </div>
-
-        <div class="attendance__alert">
-        @if (session('clock_out_end_message'))
-            <span class="attendance__alert--success">
-                {{ session('clock_out_end_message')}}
-            </span>
-        @endif
-        </div>
-
-        <div class="attendance__alert">
-        @if (session('clock_out_message'))
-            <span class="attendance__alert--success">
-                {{ session('clock_out_message')}}
-            </span>
-        @endif
-        </div>
-
-        <div class="attendance__alert">
-        @if (session('clock_out_message_success'))
-            <span class="attendance__alert--success">
-                {{ session('clock_out_message_success')}}
-            </span>
-        @endif
-        </div>
 
         <div class="attendance__alert">
         @if (session('error'))
