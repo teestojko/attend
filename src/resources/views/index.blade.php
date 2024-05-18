@@ -96,4 +96,12 @@
         @endif
         </div>
 
+        <div class="attendance__alert">
+        @if (session('error'))
+            <span class="attendance__alert--success">
+                {{ session('error')}}
+            </span>
+        @endif
+        </div>
+
 @endsection
