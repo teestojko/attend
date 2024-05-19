@@ -12,4 +12,11 @@ class Rest extends Model
     protected $guarded = [
         'id',
     ];
+
+    protected $dates = ['break_in', 'break_out'];
+
+    public function attendance()
+    {
+        return $this->belongsTo(Attendance::class);
+    }
 }

@@ -20,7 +20,6 @@ use App\Http\Controllers\TimeController;
 Route::middleware('auth')->group(function () {
         Route::get('/', [AuthController::class, 'index']);
         Route::post('/save', [TimeController::class, 'store']);
-        Route::post('/attendance', [TimeController::class,'attendance'] );
+        Route::get('/attendance', [TimeController::class,'attendance']);
 
-        // Route::post('/attendance', [TimeController::class,'attendance']);
 });
