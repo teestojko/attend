@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Rest;
 use App\Models\User;
-use Illuminate\Support\Carbon;
+// use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Date;
 
@@ -118,12 +119,13 @@ class TimeController extends Controller
 
 
 
-    public function attendance(Request $request)
+
+public function attendance(Request $request)
 {
     $today = Carbon::now()->toDateString();
 
     $attendances = Attendance::with('user', 'rests')
-        ->whereDate('created_at', $today)
+        ->whereDate('date', $today)
         ->get();
 
     foreach ($attendances as $attendance) {
@@ -139,14 +141,14 @@ class TimeController extends Controller
     return view('attendance', compact('attendances'));
 }
 
-    private function calculateTotalBreakTime($attendance)
+private function calculateTotalBreakTime($attendance)
 {
     $totalBreakTime = 0;
     $lastRestEnd = null;
 
     foreach ($attendance->rests as $rest) {
         if ($rest->break_in && $lastRestEnd !== null) {
-            $totalBreakTime += $rest->break_in->diffInMinutes($lastRestEnd);
+            $totalBreakTime += $rest->break_in->diffInSeconds($lastRestEnd);
         }
         if ($rest->break_out) {
             $lastRestEnd = $rest->break_out;
@@ -156,10 +158,10 @@ class TimeController extends Controller
     return $totalBreakTime;
 }
 
-    private function calculateEffectiveWorkTime($attendance)
+private function calculateEffectiveWorkTime($attendance)
 {
     if ($attendance->clock_in && $attendance->clock_out) {
-        $totalWorkTime = $attendance->clock_out->diffInMinutes($attendance->clock_in);
+        $totalWorkTime = $attendance->clock_out->diffInSeconds($attendance->clock_in);
         $totalBreakTime = $this->calculateTotalBreakTime($attendance);
 
         return $totalWorkTime - $totalBreakTime;
