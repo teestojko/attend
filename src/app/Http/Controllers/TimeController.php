@@ -144,14 +144,13 @@ public function attendance(Request $request)
 private function calculateTotalBreakTime($attendance)
 {
     $totalBreakTime = 0;
-    $lastRestEnd = null;
 
     foreach ($attendance->rests as $rest) {
-        if ($rest->break_in && $lastRestEnd !== null) {
-            $totalBreakTime += $rest->break_in->diffInSeconds($lastRestEnd);
-        }
-        if ($rest->break_out) {
-            $lastRestEnd = $rest->break_out;
+        $breakIn = Carbon::parse($rest->break_in);
+        $breakOut = Carbon::parse($rest->break_out);
+
+        if ($breakIn && $breakOut) {
+            $totalBreakTime += $breakOut->diffInSeconds($breakIn);
         }
     }
 
@@ -161,12 +160,15 @@ private function calculateTotalBreakTime($attendance)
 private function calculateEffectiveWorkTime($attendance)
 {
     if ($attendance->clock_in && $attendance->clock_out) {
-        $totalWorkTime = $attendance->clock_out->diffInSeconds($attendance->clock_in);
+        $clockIn = Carbon::parse($attendance->clock_in);
+        $clockOut = Carbon::parse($attendance->clock_out);
+
+        $totalWorkTime = $clockOut->diffInSeconds($clockIn);
         $totalBreakTime = $this->calculateTotalBreakTime($attendance);
 
         return $totalWorkTime - $totalBreakTime;
     }
 
-    return 0; // デフォルトで0を返す、または適切なデフォルト値を返す
+    return 0;
 }
 }
