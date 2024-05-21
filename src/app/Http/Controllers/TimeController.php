@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Rest;
 use App\Models\User;
-// use Illuminate\Support\Carbon;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-// use Illuminate\Support\Facades\Date;
+use Illuminate\Pagination\Paginator;
+
 
 class TimeController extends Controller
 {
@@ -18,7 +18,6 @@ class TimeController extends Controller
     public function index()
     {
         $users = User::with('attendances.rests')->get();
-        dd($users);
 
         return view('index', compact('users'));
     }
@@ -126,7 +125,7 @@ public function attendance(Request $request)
 
     $attendances = Attendance::with('user', 'rests')
         ->whereDate('date', $today)
-        ->get();
+        ->paginate(5);
 
     foreach ($attendances as $attendance) {
         if ($attendance->clock_in && $attendance->clock_out) {
