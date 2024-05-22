@@ -1,7 +1,9 @@
 .header {
+    display: flex;
     background: #ffffff;
-    height: 11vh;
-
+    height: 13vh;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .header__inner {

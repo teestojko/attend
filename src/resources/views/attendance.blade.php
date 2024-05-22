@@ -53,5 +53,5 @@
         @endforeach
 
     </table>
-{{ $attendances->links('vendor.pagination.simple-tailwind') }}
+{{ $attendances->links('vendor.pagination.bootstrap-4') }}
 @endsection
