@@ -170,4 +170,23 @@ private function calculateEffectiveWorkTime($attendance)
 
     return 0;
 }
+
+public function attendanceByDate($date)
+{
+    $attendances = Attendance::with('user', 'rests')
+        ->whereDate('date', $date)
+        ->paginate(5);
+
+    foreach ($attendances as $attendance) {
+        if ($attendance->clock_in && $attendance->clock_out) {
+            $attendance->total_break_time = $this->calculateTotalBreakTime($attendance);
+            $attendance->effective_work_time = $this->calculateEffectiveWorkTime($attendance);
+        } else {
+            $attendance->total_break_time = 0;
+            $attendance->effective_work_time = 0;
+        }
+    }
+
+    return view('attendance', compact('attendances', 'date'));
+}
 }

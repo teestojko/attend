@@ -7,14 +7,27 @@
 }
 
 
+.date-navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    margin-bottom: 1em;
+}
+
 .attendance_date{
-    font-size: 1.8rem;
-    padding-bottom: 2%;
+    font-size: 1.8em;
+    margin: 2em;
+}
+
+.date-form{
+    font-size: large;
+    line-height: normal;
 }
 
 .attendance__table{
     width: 100%;
-    height: 72%;
+    height: 70%;
     justify-content: space-between;
     background-color: rgb(234, 234, 234);
 }
@@ -24,7 +37,11 @@
 }
 
 nav{
-    padding-left: 42vw;
+    padding-left: 40vw;
     padding-top: 1vh;
     font-size: large;
+}
+
+.button{
+    color: aliceblue;
 }
