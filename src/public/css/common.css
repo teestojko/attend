@@ -1,7 +1,7 @@
 .header {
     display: flex;
     background: #ffffff;
-    height: 13vh;
+    height: 11vh;
     align-content: center;
     flex-wrap: wrap;
 }
@@ -21,7 +21,7 @@
     color: #000000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 1.7rem;
 }
 
 .nav{

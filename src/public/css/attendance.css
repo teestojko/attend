@@ -1,0 +1,30 @@
+.attendance{
+    height: 80vh;
+    width: 100vw;
+    background-color: rgb(234, 234, 234);
+    text-align: center;
+    padding: 3%;
+}
+
+
+.attendance_date{
+    font-size: 1.8rem;
+    padding-bottom: 2%;
+}
+
+.attendance__table{
+    width: 100%;
+    height: 72%;
+    justify-content: space-between;
+    background-color: rgb(234, 234, 234);
+}
+
+.attendance__row{
+    border-top: 1px solid;
+}
+
+nav{
+    padding-left: 42vw;
+    padding-top: 1vh;
+    font-size: large;
+}
