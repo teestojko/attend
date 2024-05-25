@@ -29,6 +29,10 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Fortify::createUsersUsing(CreateNewUser::class);
+
+        Fortify::verifyEmailView(function(){
+            return view('auth.verify-email');
+        });
         // Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         // Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         // Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
