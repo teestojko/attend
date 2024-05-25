@@ -73,9 +73,7 @@ return [
     | and the user is authenticated. You are free to change this value.
     |
     */
-
-    'home' => env('HOME_URL'),
-
+    'home' => RouteServiceProvider::HOME,
     /*
     |--------------------------------------------------------------------------
     | Fortify Routes Prefix / Subdomain
