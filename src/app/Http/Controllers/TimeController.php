@@ -178,9 +178,12 @@ class TimeController extends Controller
 
     public function userAttendance($userId)
     {
-        $user = User::with('attendances.rests')->findOrFail($userId);
+        $user = User::findOrFail($userId);
 
-        foreach ($user->attendances as $attendance) {
+        // attendancesリレーションにページネーションを適用
+        $attendances = $user->attendances()->with('rests')->paginate(1);
+
+        foreach ($attendances as $attendance) {
             if ($attendance->clock_in && $attendance->clock_out) {
                 $attendance->total_break_time = $this->calculateTotalBreakTime($attendance);
                 $attendance->effective_work_time = $this->calculateEffectiveWorkTime($attendance);
@@ -190,7 +193,7 @@ class TimeController extends Controller
             }
         }
 
-    return view('userSearch', compact('user'));
+    return view('userSearch', compact('user', 'attendances'));
     }
 
 }
