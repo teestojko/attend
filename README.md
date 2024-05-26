@@ -31,13 +31,12 @@ css 3
 
 ## テーブル設計
 
-![Uploading スクリーンショット 2024-05-26 17.18.08.png…]()
 
 
 ## ER図
 
 
-
+https://github.com/teestojko/attend/assets/158604040/6dd70e46-9efc-41ab-a802-38c4e1c0c25c
 
 
 
