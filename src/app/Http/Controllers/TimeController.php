@@ -15,16 +15,6 @@ class TimeController extends Controller
 {
 
 
-    public function index()
-    {
-        $users = User::with('attendances.rests')->get();
-
-        return view('index', compact('users'));
-    }
-
-
-
-
     public function store(Request $request)
     {
     $action = $request->input('action');//form button ravel のname"" と('')の記述を合わせる
@@ -41,7 +31,7 @@ class TimeController extends Controller
                     'date' => Carbon::now()->toDateString(),
                     'clock_in' => Carbon::now()->format('H:i:s'),
                 ]);
-                return back()->with('error', 'おはようございます！');
+                return back()->with('message', 'おはようございます！');
             }
             break;
 
@@ -101,7 +91,7 @@ class TimeController extends Controller
                     ]);
                     return back()->with('message', '無理せず頑張りましょう！');
                 } else {
-                    return back()->with('error', 'もう休憩終わってますよ！！');
+                    return back()->with('error', 'もう休憩終わってますよ！');
                 }
             } else {
                 return back()->with('error', '既に退勤が押されています');
@@ -189,4 +179,23 @@ public function attendanceByDate($date)
 
     return view('attendance', compact('attendances', 'date'));
 }
+
+
+public function userAttendance($userId)
+{
+    $user = User::with('attendances.rests')->findOrFail($userId);
+
+    foreach ($user->attendances as $attendance) {
+        if ($attendance->clock_in && $attendance->clock_out) {
+            $attendance->total_break_time = $this->calculateTotalBreakTime($attendance);
+            $attendance->effective_work_time = $this->calculateEffectiveWorkTime($attendance);
+        } else {
+            $attendance->total_break_time = 0;
+            $attendance->effective_work_time = 0;
+        }
+    }
+
+    return view('userSearch', compact('user'));
+}
+
 }

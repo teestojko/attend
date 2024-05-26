@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/save', [TimeController::class, 'store']);
         Route::get('/attendance', [TimeController::class,'attendance']);
         Route::get('/attendance/{date}', [TimeController::class, 'attendanceByDate'])->name('attendance.date');
+        Route::get('/user/{user}/attendance', [TimeController::class, 'userAttendance'])->name('user.attendance');
 
         Route::get('/email/verify', function () {
         return view('auth.verify-email');
