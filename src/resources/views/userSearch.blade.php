@@ -16,6 +16,7 @@
                 <th class="attendance__label">勤務終了</th>
                 <th class="attendance__label">休憩時間</th>
                 <th class="attendance__label">労働時間</th>
+                <th class="attendance__label"></th>
             </tr>
             @foreach ($user->attendances as $attendance)
                 <tr class="attendance__row">

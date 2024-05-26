@@ -67,6 +67,10 @@
                     <td class="attendance__data">
                         {{ sprintf('%02d', $workHours) }}:{{ sprintf('%02d', $workMinutes) }}:{{ sprintf('%02d', $workSeconds) }}
                     </td>
+
+                    <td class="attendance__data">
+                        <a href="{{ route('user.attendance', ['user' => $attendance->user->id]) }}">詳細</a>
+                    </td>
                 </tr>
             @endforeach
         </table>
