@@ -35,7 +35,8 @@ css 3
 
 ## ER図
 
-<img width="668" alt="スクリーンショット 2024-05-26 17 19 07" src="https://github.com/teestojko/attend/assets/158604040/6dd70e46-9efc-41ab-a802-38c4e1c0c25c">
+<img width="663" alt="スクリーンショット 2024-05-26 17 35 29" src="https://github.com/teestojko/attend/assets/158604040/c5f238cd-c0f1-4a67-8042-3de0c995ba83">
+
 
 
 # 環境構築
