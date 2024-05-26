@@ -31,7 +31,7 @@ css 3
 
 ## テーブル設計
 
-
+<img width="482" alt="スクリーンショット 2024-05-26 17 18 08" src="https://github.com/teestojko/attend/assets/158604040/6a62511d-5d1f-45fe-825b-fc9c96331692">
 
 ## ER図
 
