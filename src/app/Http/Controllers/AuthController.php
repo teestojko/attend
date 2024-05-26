@@ -25,7 +25,6 @@ class AuthController extends Controller
 
         $latestRest = $todayAttendance ? $todayAttendance->rests()->latest()->first() : null;
 
-        // Check if $latestRest is not null before accessing break_out
         $clockOutDisabled = is_null($todayAttendance) || !is_null($todayAttendance->clock_out) || ($latestRest && is_null($latestRest->break_out));
 
         $breakInDisabled = is_null($todayAttendance) || !is_null($todayAttendance->clock_out) || ($latestRest && is_null($latestRest->break_out));
