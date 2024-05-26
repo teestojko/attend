@@ -69,7 +69,6 @@
                     </td>
                 </tr>
             @endforeach
-
         </table>
     <nav class="nav">
     {{ $attendances->links('vendor.pagination.bootstrap-4') }}
