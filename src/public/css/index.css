@@ -45,6 +45,11 @@
     /* cursor: pointer; */
 }
 
+.attendance__button-submit:disabled {
+    opacity: 0.3; /* ボタンの透過度を50%に設定 */
+    cursor: not-allowed; /* マウスカーソルを禁止マークに変更 */
+}
+
 .attendance__content {
     display: flex;
     flex-wrap: wrap;
