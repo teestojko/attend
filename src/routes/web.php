@@ -5,8 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TimeController;
+use App\Providers\RouteServiceProvider;
 
-// use App\Http\Controllers\TimeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,25 +20,26 @@ use App\Http\Controllers\TimeController;
 */
 
 Route::middleware('auth')->group(function () {
-        Route::get('/', [AuthController::class, 'index']);
-        Route::post('/save', [TimeController::class, 'store']);
-        Route::get('/attendance', [TimeController::class,'attendance']);
-        Route::get('/attendance/{date}', [TimeController::class, 'attendanceByDate'])->name('attendance.date');
-        Route::get('/user/{user}/attendance', [TimeController::class, 'userAttendance'])->name('user.attendance');
 
-        Route::get('/email/verify', function () {
+    Route::get('/email/verify', function () {
         return view('auth.verify-email');
-        })->middleware('auth')->name('verification.notice');
+    })->middleware('auth')->name('verification.notice');
 
-        Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-            $request->fulfill();
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
 
-            return redirect('/login');
-        })->middleware(['auth', 'signed'])->name('verification.verify');
+        return redirect()->intended(RouteServiceProvider::HOME);
+    })->middleware(['auth', 'signed'])->name('verification.verify');
 
-        Route::post('/email/verification-notification', function (Request $request) {
-            $request->user()->sendEmailVerificationNotification();
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
 
-            return back()->with('message', 'Verification link sent!');
-        })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-        });
+        return back()->with('message', '確認メールを再送信しました。');
+    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+    Route::get('/', [AuthController::class, 'index'])->middleware('verified');
+    Route::post('/save', [TimeController::class, 'store'])->middleware('verified');
+    Route::get('/attendance', [TimeController::class, 'attendance'])->middleware('verified');
+    Route::get('/attendance/{date}', [TimeController::class, 'attendanceByDate'])->name('attendance.date')->middleware('verified');
+    Route::get('/user/{user}/attendance', [TimeController::class, 'userAttendance'])->name('user.attendance')->middleware('verified');
+});
