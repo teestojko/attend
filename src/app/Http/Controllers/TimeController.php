@@ -180,8 +180,7 @@ class TimeController extends Controller
     {
         $user = User::findOrFail($userId);
 
-        // attendancesリレーションにページネーションを適用
-        $attendances = $user->attendances()->with('rests')->paginate(1);
+        $attendances = $user->attendances()->with('rests')->paginate(2);
 
         foreach ($attendances as $attendance) {
             if ($attendance->clock_in && $attendance->clock_out) {

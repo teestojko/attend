@@ -18,7 +18,7 @@
                 <th class="attendance__label">労働時間</th>
                 <th class="attendance__label"></th>
             </tr>
-            @foreach ($user->attendances as $attendance)
+            @foreach ($attendances as $attendance)
                 <tr class="attendance__row">
                     <td class="attendance__data">{{ $attendance->date }}</td>
                     <td class="attendance__data">{{ $attendance->clock_in ? \Carbon\Carbon::parse($attendance->clock_in)->format('H:i:s') : 'N/A' }}</td>
