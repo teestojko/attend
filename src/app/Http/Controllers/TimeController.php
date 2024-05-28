@@ -175,6 +175,12 @@ class TimeController extends Controller
         return view('attendance', compact('attendances', 'date'));
     }
 
+    public function userList()
+    {
+        $users = User::paginate(5);
+        return view('userList', compact('users'));
+    }
+
 
     public function userAttendance($userId)
     {

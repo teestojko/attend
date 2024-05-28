@@ -28,7 +28,7 @@
                             </li>
 
                             <li class="header-nav__item">
-                                <a class="header-nav__link" href="{{ route('user.attendance', ['user' => Auth::id()]) }}">ユーザー情報</a>
+                                <a class="header-nav__link" href="{{ route('user.list', ['user' => Auth::id()]) }}">ユーザー一覧</a>
                             </li>
 
                             <li class="header-nav__item">
