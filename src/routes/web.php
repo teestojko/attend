@@ -39,8 +39,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [AuthController::class, 'index'])->middleware('verified');
     Route::post('/save', [TimeController::class, 'store'])->middleware('verified');
-    Route::get('/attendance', [TimeController::class, 'attendance'])->middleware('verified');
-    Route::get('/attendance/{date}', [TimeController::class, 'attendanceByDate'])->name('attendance.date')->middleware('verified');
-    Route::get('/users', [TimeController::class, 'userList'])->name('user.list')->middleware('verified');
-    Route::get('/user/{user}/attendance', [TimeController::class, 'userAttendance'])->name('user.attendance')->middleware('verified');
+    Route::get('/attendance', [AttendanceController::class, 'attendance'])->middleware('verified');
+    Route::get('/attendance/{date}', [AttendanceController::class, 'attendanceByDate'])->name('attendance.date')->middleware('verified');
+    Route::get('/users', [AttendanceController::class, 'userList'])->name('user.list')->middleware('verified');
+    Route::get('/user/{user}/attendance', [AttendanceController::class, 'userAttendance'])->name('user.attendance')->middleware('verified');
 });
