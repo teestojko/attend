@@ -40,7 +40,7 @@ class SearchController extends Controller
     {
         $user = User::findOrFail($userId);
 
-        $attendances = $user->attendances()->with('rests')->paginate(2);
+        $attendances = $user->attendances()->with('rests')->paginate(5);
 
         foreach ($attendances as $attendance) {
             if ($attendance->clock_in && $attendance->clock_out) {
