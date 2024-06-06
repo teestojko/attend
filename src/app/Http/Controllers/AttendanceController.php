@@ -31,7 +31,7 @@ class AttendanceController extends Controller
     return view('attendance', compact('attendances'));
     }
 
-    private function calculateTotalBreakTime($attendance)
+    public function calculateTotalBreakTime($attendance)
     {
         $totalBreakTime = 0;
 
@@ -46,7 +46,7 @@ class AttendanceController extends Controller
     return $totalBreakTime;
     }
 
-    private function calculateEffectiveWorkTime($attendance)
+    public function calculateEffectiveWorkTime($attendance)
     {
         if ($attendance->clock_in && $attendance->clock_out) {
             $clockIn = Carbon::parse($attendance->clock_in);
@@ -82,7 +82,7 @@ class AttendanceController extends Controller
         return view('attendance', compact('attendances', 'date'));
     }
 
-    
+
     public function userList()
     {
         $users = User::paginate(5);
