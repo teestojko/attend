@@ -7,9 +7,9 @@ use App\Models\Attendance;
 use App\Models\Rest;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 
-class RestController extends Controller
+class SearchController extends Controller
 {
-    //
+
 }
