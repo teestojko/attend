@@ -16,13 +16,13 @@
 
     <div class="date-navigation">
         <form class="date-form" action="{{ route('attendance.date', ['date' => $previousDate]) }}" method="get">
-            <button type="submit">&lt;</button>
+            <button class="submit" type="submit">&lt;</button>
         </form>
 
         <p class="attendance_date">{{ $currentDate->toDateString() }}</p>
 
         <form class="date-form" action="{{ route('attendance.date', ['date' => $nextDate]) }}" method="get">
-            <button type="submit">&gt;</button>
+            <button class="submit" type="submit">&gt;</button>
         </form>
     </div>
 

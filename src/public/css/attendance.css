@@ -13,6 +13,7 @@
     align-items: center;
     height: 10vh;
     margin-bottom: 1em;
+    padding-bottom: 2%;
 }
 
 .attendance_date{
@@ -43,4 +44,12 @@ nav{
 
 .button{
     color: aliceblue;
+}
+
+.submit{
+    color: rgb(80, 80, 255);
+    border-block-color: rgb(80, 80, 255);
+    border:solid;
+    width: 3vw;
+    background-color: rgb(255, 255, 255);
 }
