@@ -4,7 +4,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TimeController;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ListController;
