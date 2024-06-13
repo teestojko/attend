@@ -8,6 +8,7 @@ use App\Http\Controllers\TimeController;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ListController;
+use App\Http\Controllers\RestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [AuthController::class, 'index'])->middleware('verified');
     Route::post('/save', [TimeController::class, 'store'])->middleware('verified');
+    Route::post('/rest/save', [RestController::class, 'store'])->middleware('verified');
     Route::get('/attendance', [AttendanceController::class, 'attendance'])->middleware('verified');
     Route::get('/attendance/{date}', [ListController::class, 'attendanceByDate'])->name('attendance.date')->middleware('verified');
     Route::get('/users', [ListController::class, 'userList'])->name('user.list')->middleware('verified');

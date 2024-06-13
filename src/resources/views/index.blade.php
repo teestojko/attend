@@ -27,12 +27,12 @@
             </div>
 
             <div class="attendance__panel">
-                <form class="attendance__button" action="/save" method="post">
+                <form class="attendance__button" action="/rest/save" method="post">
                     @csrf
                     <button class="attendance__button-submit" type="submit" name="action" value="break_in" {{ $breakInDisabled ?? false ? 'disabled' : '' }}>休憩開始</button>
                 </form>
 
-                <form class="attendance__button" action="/save" method="post">
+                <form class="attendance__button" action="/rest/save" method="post">
                     @csrf
                     <button class="attendance__button-submit" type="submit" name="action" value="break_out" {{ $breakOutDisabled ?? false ? 'disabled' : '' }}>休憩終了</button>
                 </form>
