@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
     Route::get('/', [AuthController::class, 'index'])->middleware('verified');
-    Route::post('/save', [TimeController::class, 'store'])->middleware('verified');
+    Route::post('/save', [AttendanceController::class, 'store'])->middleware('verified');
     Route::post('/rest/save', [RestController::class, 'store'])->middleware('verified');
     Route::get('/attendance', [ListController::class, 'attendance'])->middleware('verified');
     Route::get('/attendance/{date}', [ListController::class, 'attendanceByDate'])->name('attendance.date')->middleware('verified');

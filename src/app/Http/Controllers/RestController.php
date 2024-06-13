@@ -35,7 +35,6 @@ class RestController extends Controller
             }
         break;
 
-
         case 'break_out':
             $user = Auth::user();
             $attendance = $user->attendances()->where('date', Carbon::today())->first();
