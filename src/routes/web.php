@@ -7,7 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TimeController;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\AttendanceController;
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ListController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [AuthController::class, 'index'])->middleware('verified');
     Route::post('/save', [TimeController::class, 'store'])->middleware('verified');
     Route::get('/attendance', [AttendanceController::class, 'attendance'])->middleware('verified');
-    Route::get('/attendance/{date}', [SearchController::class, 'attendanceByDate'])->name('attendance.date')->middleware('verified');
-    Route::get('/users', [SearchController::class, 'userList'])->name('user.list')->middleware('verified');
-    Route::get('/user/{user}/attendance', [SearchController::class, 'userAttendance'])->name('user.attendance')->middleware('verified');
+    Route::get('/attendance/{date}', [ListController::class, 'attendanceByDate'])->name('attendance.date')->middleware('verified');
+    Route::get('/users', [ListController::class, 'userList'])->name('user.list')->middleware('verified');
+    Route::get('/user/{user}/attendance', [ListController::class, 'userAttendance'])->name('user.attendance')->middleware('verified');
 });

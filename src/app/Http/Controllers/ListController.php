@@ -9,8 +9,10 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 
-class SearchController extends Controller
+class ListController extends Controller
 {
+
+    
     public function attendanceByDate($date)
     {
         $attendances = Attendance::with('user', 'rests')
