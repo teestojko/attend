@@ -31,7 +31,8 @@ css 3
 
 ## テーブル設計
 
-<img width="482" alt="スクリーンショット 2024-05-26 17 18 08" src="https://github.com/teestojko/attend/assets/158604040/6a62511d-5d1f-45fe-825b-fc9c96331692">
+<img width="496" alt="スクリーンショット 2024-06-28 21 06 19" src="https://github.com/teestojko/attend/assets/158604040/f4d6ff69-fe5c-4fe0-92b5-01ddabc6096d">
+
 
 ## ER図
 
@@ -55,36 +56,8 @@ docker-compose up -d --build
 
 composer install
 
-php artisan key:generate
+touch .drawdio
 
-.envの作成、記述変更
-cp .env.example .env
+php artisan vendor:publish → laravel paginationを選択
 
-
-.env
-DB_HOST=mysql
-
-DB_PORT=3306
-
-DB_DATABASE=laravel_db
-
-DB_USERNAME=laravel_user
-
-DB_PASSWORD=laravel_pass
-
-
-ダミーデータ挿入(例:Author)
-
-php artisan make:migration create_authors_table
-
-php artisan make:model Author
-
-php artisan make:factory AuthorFactory
-
-php artisan make:seeder AuthorsTableSeeder
-
-適宜挿入したいダミーデータを記述
-
-php artisan migrate
-
-php artisan db:seed
+composer.jsonの記述に"nesbot/carbon": "^2.31"を追加
