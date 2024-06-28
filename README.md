@@ -41,28 +41,39 @@ css 3
 
 
 # 環境構築
+
 git clone git@github.com:teestojko/template.git
 
-名前変更
+### 名前変更
+
 mv template Atte
 
-プロジェクトのルートディレクトリ(Atte)に移動して、
+### プロジェクトのルートディレクトリ(Atte)に移動して、
+
 ⬇️
+
 git remote set-url origin https://github.com/teestojko/attend.git
+
 (作成されたgitのURLを、下記のoriginの後ろに記述)
 
-docker作成＆起動
+### docker作成＆起動
+
 docker-compose up -d --build
 
 composer install
 
 php artisan key:generate
 
-.envの作成、記述変更
+
+
+### .envの作成、記述変更
+
 cp .env.example .env
 
 
+
 .env
+
 DB_HOST=mysql
 
 DB_PORT=3306
@@ -74,7 +85,8 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
 
-ダミーデータ挿入(例:Author)
+
+### ダミーデータ挿入(例:Author)
 
 php artisan make:migration create_authors_table
 
@@ -84,7 +96,9 @@ php artisan make:factory AuthorFactory
 
 php artisan make:seeder AuthorsTableSeeder
 
-適宜挿入したいダミーデータを記述
+
+
+### 適宜挿入したいダミーデータを記述
 
 php artisan migrate
 
