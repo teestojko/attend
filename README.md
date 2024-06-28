@@ -72,7 +72,7 @@ cp .env.example .env
 
 
 
-##### .env
+### .env
 
 DB_HOST=mysql
 
