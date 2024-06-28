@@ -72,7 +72,7 @@ cp .env.example .env
 
 
 
-.env
+##### .env
 
 DB_HOST=mysql
 
@@ -98,7 +98,7 @@ php artisan make:seeder AuthorsTableSeeder
 
 
 
-### 適宜挿入したいダミーデータを記述
+##### (適宜挿入したいダミーデータを記述)
 
 php artisan migrate
 
