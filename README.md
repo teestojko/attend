@@ -40,26 +40,51 @@ css 3
 
 
 # 環境構築
-git clone git@github.com:coachtech-material/
+git clone git@github.com:teestojko/template.git
 
-laravel-docker-template.git
+名前変更
+mv template Atte
 
-mv laravel-docker-template Atte
-
+プロジェクトのルートディレクトリ(Atte)に移動して、
+⬇️
 git remote set-url origin https://github.com/teestojko/attend.git
+(作成されたgitのURLを、下記のoriginの後ろに記述)
 
-composer require laravel/fortify
-
-php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
-
-php artisan migrate
-
+docker作成＆起動
 docker-compose up -d --build
 
 composer install
 
-touch .drawdio
+php artisan key:generate
 
-php artisan vendor:publish → laravel paginationを選択
+.envの作成、記述変更
+cp .env.example .env
 
-composer.jsonの記述に"nesbot/carbon": "^2.31"を追加
+
+.env
+DB_HOST=mysql
+
+DB_PORT=3306
+
+DB_DATABASE=laravel_db
+
+DB_USERNAME=laravel_user
+
+DB_PASSWORD=laravel_pass
+
+
+ダミーデータ挿入(例:Author)
+
+php artisan make:migration create_authors_table
+
+php artisan make:model Author
+
+php artisan make:factory AuthorFactory
+
+php artisan make:seeder AuthorsTableSeeder
+
+適宜挿入したいダミーデータを記述
+
+php artisan migrate
+
+php artisan db:seed
