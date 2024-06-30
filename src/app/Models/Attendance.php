@@ -16,7 +16,6 @@ class Attendance extends Model
 
     protected $dates = ['clock_in', 'clock_out'];
 
-    
     public function rests()
     {
         return $this->hasMany(Rest::class);

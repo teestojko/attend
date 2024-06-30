@@ -34,7 +34,6 @@ class RestController extends Controller
                 return back()->with('error', 'まだ出勤していません');
             }
         break;
-
         case 'break_out':
             $user = Auth::user();
             $attendance = $user->attendances()->where('date', Carbon::today())->first();

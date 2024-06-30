@@ -17,6 +17,7 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
+
         $todayAttendance = $user->attendances()->where('date', Carbon::today())->first();
 
         $clockInDisabled = !is_null($todayAttendance) && !is_null($todayAttendance->clock_in);

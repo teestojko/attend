@@ -28,7 +28,6 @@ class AttendanceController extends Controller
                     return back()->with('message', 'おはようございます！');
                 }
             break;
-
             case 'clock_out':
                 $user = Auth::user();
                 $today = Carbon::today()->toDateString();
@@ -47,6 +46,6 @@ class AttendanceController extends Controller
                 }
             break;
         }
-    return back();
+        return back();
     }
 }
