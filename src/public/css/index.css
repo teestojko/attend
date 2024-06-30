@@ -1,13 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .attendance{
     background-color: #eeeeee;
-    padding: 2%;
+    height: 630px;
 }
 
 .attendance__alert--success {
+    position: fixed;
+    bottom: 6vh;
     padding: 10px 30px;
     border-color: #badbcc;
     background-color: #d1e7dd;
     color: #0f5132;
+
 }
 
 .attendance__alert--danger {
