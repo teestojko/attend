@@ -11,12 +11,11 @@
 
 .attendance__alert--success {
     position: fixed;
-    bottom: 6vh;
+    bottom: 9vh;
     padding: 10px 30px;
-    border-color: #badbcc;
     background-color: #d1e7dd;
     color: #0f5132;
-
+    margin-left: 42%;
 }
 
 .attendance__alert--danger {
