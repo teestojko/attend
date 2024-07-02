@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .attendance{
     height: 80vh;
     width: 100vw;
@@ -37,7 +43,7 @@
 }
 
 nav{
-    padding-left: 40vw;
+    padding-left: 42vw;
     padding-top: 1vh;
     font-size: large;
 }

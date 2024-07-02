@@ -1,3 +1,35 @@
-h2{
-    height: 9vh;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search{
+    height: 80vh;
+    width: 100vw;
+    background-color: rgb(234, 234, 234);
+    text-align: center;
+}
+
+.search__table{
+    width: 100%;
+    height: 60%;
+}
+
+
+.search_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 17vh;
+}
+
+.search__row{
+    border-top: 1px solid;
+}
+
+nav{
+    padding-left: 68vh;
+    padding-top: 1vh;
+    font-size: large;
 }
