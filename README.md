@@ -2,7 +2,14 @@
 出勤、退勤、休憩時間を打刻し、ユーザー毎に日付別の実質労働時間を把握、
 
 管理できる機能を実装したアプリケーション
-![alt text](image.png)
+<!-- ![alt text](image.png) -->
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
 
 ## 作成した目的
 全ての社員の労働時間をアプリケーションで管理し、人事評価に繋げるため
