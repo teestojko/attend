@@ -1,8 +1,10 @@
 @extends('layouts.app')
+
 @section('css')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
+
 @section('content')
     <div class="attendance">
         @if (!is_null($username))

@@ -27,7 +27,6 @@
                         </button>
                     </form>
             </p>
-
             @if (session('message'))
                 <div>
                     {{ session('message') }}

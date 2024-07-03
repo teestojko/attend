@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
         $request->fulfill();
         return redirect()->intended(RouteServiceProvider::HOME);
     })->middleware(['auth', 'signed'])->name('verification.verify');
-    
+
     Route::post('/email/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
         return back()->with('message', '確認メールを再送信しました。');
