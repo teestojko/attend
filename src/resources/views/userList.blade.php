@@ -2,6 +2,8 @@
 
 @section('css')
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/userList.css') }}">
 @endsection
 
@@ -40,7 +42,11 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $users->links() }}
+            @if ($users->count() > 0)
+                {{ $users->links() }}
+            @else
+                <p>出勤データがありません。</p>
+            @endif
         </div>
     </div>
 @endsection

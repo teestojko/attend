@@ -74,8 +74,10 @@
                 </tr>
             @endforeach
         </table>
-        <nav class="nav">
-        {{ $attendances->links('vendor.pagination.bootstrap-4') }}
-        </nav>
+        @if ($attendances->count() > 0)
+            {{ $attendances->links() }}
+        @else
+            <p>出勤データがありません。</p>
+        @endif
     </div>
 @endsection
