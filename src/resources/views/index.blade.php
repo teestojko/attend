@@ -61,4 +61,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("mousemove", (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.querySelector(".index").style.backgroundPosition = `${x}% ${y}%, ${100 - x}% ${100 - y}%`;
+        });
+    </script>
+
 @endsection
+
+
+
+

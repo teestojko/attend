@@ -1,42 +1,110 @@
-.main{
-    height: 80vh;
-    width: 100vw;
-    background-color: rgb(234, 234, 234);
-    text-align: center;
-    padding: 0 2%;
-}
-
-.content{
-    height: 74%;
-}
-
-h2{
-    height: 27%;
+.user-list {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 20px;
 }
 
-.list-table{
+.user-list-content {
+    background-color: #d5d5d5;
+    border-radius: 12px;
+    padding: 30px;
+    width: 80%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.user-list-content h2 {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-list-table {
     width: 100%;
-    height: 85%;
-    justify-content: space-between;
-    background-color: rgb(234, 234, 234);
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.list-low{
-    border-top: 1px solid;
+.list-label {
+    background-color: #6200ea;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #bb86fc;
 }
 
-.list-user{
-    border-top: 1px solid;
+.list-name-label {
+    background-color: #6200ea;
+    color: white;
+    width: 70%;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #bb86fc;
 }
 
-.button{
-    color: rgb(31, 125, 207);
+.list-user {
+    transition: background-color 0.2s;
 }
 
-.pagination{
+.list-user:hover {
+    background-color: #292929;
+}
+
+.list-data {
+    color: white;
+    background: linear-gradient(160deg, #c1c1c1, #aaaaaa, #c1c1c1 );
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.list-data:first-child {
+    font-weight: bold;
+}
+
+.list-data a.button {
+    background-color: #03dac6;
+    color: #121212;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.list-data a.button:hover {
+    background-color: #018786;
+    transform: scale(1.05);
+}
+
+.empty-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #ff5252;
+}
+
+.pagination {
+    display: flex;
     justify-content: center;
-    padding-top: 1%;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: #6200ea;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.pagination a:hover {
+    background-color: #bb86fc;
+}
+
+.pagination .active {
+    background-color: #03dac6;
+    pointer-events: none;
 }

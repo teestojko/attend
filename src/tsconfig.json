@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+    // コンパイル出力のターゲット JavaScript バージョンを指定します。最新の ECMAScript 機能を使用する場合は "ESNext" を選択します。
+    "target": "ESNext",
+
+    // モジュールシステムの形式を指定します。"ESNext" は ES モジュール形式を使用します。
+    "module": "ESNext",
+
+    // 厳格な型チェックを有効にします。これにより、より安全なコードが書けるようになります。
+    "strict": true,
+
+    // JSX の処理方法を指定します。"react-jsx" は新しい JSX トランスフォームを使用します（React 17以降）。
+    "jsx": "react-jsx",
+
+    // CommonJS モジュールと ES モジュール間の相互運用性をサポートします。
+    "esModuleInterop": true,
+
+    // モジュールの解決方法を指定します。"node" は Node.js のモジュール解決ルールを使用します。
+    "moduleResolution": "node",
+
+    // ライブラリファイル（`node_modules` 内など）を型チェックの対象から除外します。
+    "skipLibCheck": true,
+
+    // ファイル名の大文字と小文字の一貫性を強制します。異なる大文字小文字のファイル名を防止します。
+    "forceConsistentCasingInFileNames": true,
+
+    // ベースディレクトリを指定します。ここでは `resources/js` を基準にパスを解決します。
+    "baseUrl": "./resources/js",
+
+    // パスエイリアスを設定します。`@/` で `resources/js` 内のファイルを簡単にインポートできるようになります。
+    "paths": {
+        "@/*": ["*"]
+    }
+    },
+
+  // コンパイル対象のファイルを指定します。`resources/js` ディレクトリ内のすべてのファイルが対象です。
+    "include": [
+        "resources/js/**/*",
+    ]
+}
+
+
